@@ -5,9 +5,9 @@ class temp{
     string id, name, author;
     fstream file;
 public:
-    void addBook();
-    void showAll();
-    void extractBook();
+    void addTheNewBook();
+    void ShowTheAllBooks();
+    void ExtractAnyBook();
 };
 int main(){
     char choice;
@@ -24,15 +24,15 @@ int main(){
     switch(choice){
         case '1':
             cin.ignore();
-            obj.showAll();
+            obj.ShowTheAllBooks();
             break;
         case '2':
             cin.ignore();
-            obj.extractBook();
+            obj.ExtractAnyBook();
             break;
         case '3':
             cin.ignore();
-            obj.addBook();
+            obj.addTheNewBook();
             break;
         case '4':
             break;
@@ -42,7 +42,7 @@ int main(){
     }
     return 0;
 }
-void temp::addBook(){
+void temp::addTheNewBook(){
     cout << "Enter the Book ID:: ";
     getline(cin, id);
     cout << "Enter the Book Name:: ";
@@ -54,7 +54,7 @@ void temp::addBook(){
     file << id << "*" << name << "*" << author << endl;
     file.close();
 }
-void temp::showAll(){
+void temp::ShowTheAllBooks(){
     file.open("bookData.txt", ios::in);
     cout << "\n\n";
     cout << "\t\tBook ID \t\t\t Book Name \t\t\t Author's Name" << endl;
@@ -66,10 +66,10 @@ void temp::showAll(){
     }
     file.close();
 }
-void temp::extractBook(){
+void temp::ExtractAnyBook(){
     string search;
     cin.ignore();
-    showAll();
+    ShowTheAllBooks();
     cout << "Enter Book Id:: ";
     getline(cin, search);
     file.open("bookData.txt", ios::in);
